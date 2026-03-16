@@ -1,8 +1,8 @@
 /**
- * use case 3 : centralized room inventory
+ *
  *
  * this class acts as the single source of truth for room availability in the hotel
- * @version 3.0
+ *
  */
 
 import java.util.HashMap;
