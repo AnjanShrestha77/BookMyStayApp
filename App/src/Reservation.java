@@ -11,7 +11,7 @@
  * At this stage, a reservation only captures intent,
  * not confirmation or room allocation.
  *
- * @version 8.0
+ * @version 9.0
  */
 public class Reservation {
 
