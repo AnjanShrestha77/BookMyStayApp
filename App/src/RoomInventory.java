@@ -16,7 +16,7 @@ import java.util.Map;
  *
  * Used in concurrent booking simulation.
  *
- * @version 11.0
+ * @version 12.0
  */
 public class RoomInventory {
 
@@ -70,5 +70,8 @@ public class RoomInventory {
      */
     public Map<String, Integer> getAllInventory() {
         return roomAvailability;
+    }
+    public void updateAvailability(String room, int count) {
+        roomAvailability.put(room, count);
     }
 }
