@@ -1,36 +1,41 @@
+import java.util.*;
+
 /**
- * ===========================
- * RoomInventory
- * ===========================
+ * ================================================================
+ * CLASS - RoomInventory
+ * ================================================================
  *
- * this class acts as the single source of truth for room availability in the hotel
+ * Description:
+ * Maintains room availability counts.
  *
- * @version 9.0
+ * @version 10.0
  */
-
-import java.util.HashMap;
-import java.util.Map;
-
 public class RoomInventory {
-    private Map<String , Integer> roomAvailability;
 
-    public RoomInventory(){
-        roomAvailability=new HashMap<>();
-        initializeInventory();
+    private Map<String, Integer> inventory;
 
-
-    }
-    private void initializeInventory(){
-        roomAvailability.put("Single Room",5);
-        roomAvailability.put("Double Room",3);
-        roomAvailability.put("Suite Room",2);
+    public RoomInventory() {
+        inventory = new HashMap<>();
     }
 
-    public Map<String,Integer> getRoomAvailability(){
-        return roomAvailability;
-    }
-    public void updateAvailabilty(String room , int count){
-        roomAvailability.put(room,count);
+    /**
+     * Adds initial room count.
+     */
+    public void addRoom(String roomType, int count) {
+        inventory.put(roomType, count);
     }
 
+    /**
+     * Increments room count after cancellation.
+     */
+    public void incrementRoom(String roomType) {
+        inventory.put(roomType, inventory.getOrDefault(roomType, 0) + 1);
+    }
+
+    /**
+     * Gets available room count.
+     */
+    public int getAvailableRooms(String roomType) {
+        return inventory.getOrDefault(roomType, 0);
+    }
 }
