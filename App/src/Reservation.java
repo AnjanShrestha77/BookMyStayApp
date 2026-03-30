@@ -1,39 +1,21 @@
-
 /**
- * ===================================================
- * CLASS - Reservation
- * ===================================================
- *
- *
- * Description:
- * This class represents a booking request made by a guest.
- *
- * At this stage, a reservation only captures intent,
- * not confirmation or room allocation.
- *
- * @version 9.0
+ * Represents a confirmed reservation.
  */
 public class Reservation {
 
-    // Name of the guest making the booking
     private String guestName;
+    private String roomId;
 
-    // Requested room type
-    private String roomType;
-
-    // Constructor
-    public Reservation(String guestName, String roomType) {
+    public Reservation(String guestName, String roomId) {
         this.guestName = guestName;
-        this.roomType = roomType;
+        this.roomId = roomId;
     }
 
-    // Getter for guest name
     public String getGuestName() {
         return guestName;
     }
 
-    // Getter for room type
-    public String getRoomType() {
-        return roomType;
+    public String getRoomId() {
+        return roomId;
     }
 }

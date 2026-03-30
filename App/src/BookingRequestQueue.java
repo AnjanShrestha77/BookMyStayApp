@@ -1,40 +1,21 @@
+import java.util.*;
+
 /**
- * =========================
- * BookingRequestQueue
- * ==========================
- *
- * this class manages a Queue(FIFO) for the booking request
- *
- * @version 9.0
+ * Shared booking request queue.
  */
-
-
-import java.util.LinkedList;
-import java.util.Queue;
 public class BookingRequestQueue {
 
+    private Queue<BookingRequest> queue = new LinkedList<>();
 
-
-    // Queue that stores booking requests
-    private Queue<Reservation> requestQueue;
-
-    // Initialize empty queue
-    public BookingRequestQueue() {
-        requestQueue = new LinkedList<>();
+    public void addRequest(BookingRequest request) {
+        queue.offer(request);
     }
 
-    // Add booking request
-    public void addRequest(Reservation reservation) {
-        requestQueue.offer(reservation);
+    public BookingRequest getRequest() {
+        return queue.poll();
     }
 
-    // Get next request (FIFO)
-    public Reservation getNextRequest() {
-        return requestQueue.poll();
-    }
-
-    // Check if queue has requests
-    public boolean hasPendingRequests() {
-        return !requestQueue.isEmpty();
+    public boolean isEmpty() {
+        return queue.isEmpty();
     }
 }
